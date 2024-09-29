@@ -1,35 +1,42 @@
+import React, { useState } from 'react';
 import StickyBar from "../components/StickyBar.tsx";
-import { useState } from "react";
-
 
 function Signup() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const handleSignup = async () => {
-        console.log("submitting");
-        const response = await fetch('http://127.0.0.1:5000/signup', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                user_email: email,
-                password: password,
-            }),
-        });
-        console.log(response);
+    const handleSignup = async (event: React.FormEvent) => {
+        event.preventDefault();
+        
+        try {
+            console.log("submitting");
+            const response = await fetch('http://127.0.0.1:5000/signup', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    user_email: email,
+                    password: password,
+                }),
+            });
+            console.log(response);
 
-        if (response.ok) {
-            alert('Signup successful');
-        } else {
-            alert('Signup failed');
+            if (response.ok) {
+                alert('Signup successful');
+            } else {
+                alert('Signup failed');
+            }
+        } catch (error) {
+            console.error('Error during signup:', error);
+            alert('An error occurred during signup. Please try again.');
         }
     };
 
     return (
         <>
-            <StickyBar/>
+            <StickyBar />
+            <h2>Signup</h2>
             <form onSubmit={handleSignup}>
                 <div>
                     <label htmlFor="email">Email:</label>
@@ -54,7 +61,7 @@ function Signup() {
                 <button type="submit">Signup</button>
             </form>
         </>
-    )
+    );
 }
 
-export default Signup
+export default Signup;
