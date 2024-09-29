@@ -69,6 +69,7 @@ button:focus-visible {
 #title {
   font-size: 2em;
   font-weight: bold;
+  color: white;
 }
 
 #login-signup-form > * {
