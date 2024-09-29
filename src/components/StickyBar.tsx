@@ -3,6 +3,7 @@ import {Link} from "react-router-dom";
 
 function StickyBar() {
 
+    
     return (
         <div id="sticky-bar">
             <div>
