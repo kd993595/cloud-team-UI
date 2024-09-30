@@ -3,14 +3,11 @@
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
 }
 
 a {
@@ -24,8 +21,6 @@ a:hover {
 
 body {
   margin: 10px;
-  min-width: 320px;
-  min-height: 100vh;
 }
 
 h1 {
@@ -40,13 +35,12 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
-  color: white;
+  background-color: #B9D9EB;
   cursor: pointer;
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  border-color: black;
 }
 button:focus,
 button:focus-visible {
@@ -54,13 +48,18 @@ button:focus-visible {
 }
 
 #sticky-bar {
-  position: sticky;
-  top: 0;
-  overflow: hidden;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
+  padding: 10px 10px 20px 10px;
+  border-bottom: black solid 1px;
+}
+
+#outer-sticky-bar {
+  position: sticky;
+  top: 0;
+  overflow: visible;
+  padding-bottom: 10px;
 }
 
 #button-row > * {
@@ -70,7 +69,6 @@ button:focus-visible {
 #title {
   font-size: 2em;
   font-weight: bold;
-  color: white;
 }
 
 #login-signup-form > * {

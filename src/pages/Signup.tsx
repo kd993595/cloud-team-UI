@@ -37,26 +37,34 @@ function Signup() {
         <>
             <StickyBar />
             <h2>Signup</h2>
-            <form onSubmit={handleSignup}>
+            <form onSubmit={handleSignup} id = "login-signup-form">
                 <div>
-                    <label htmlFor="email">Email:</label>
-                    <input
-                        type="email"
-                        id="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        required
-                    />
+                    <div>
+                        <label htmlFor="email"><b>Email: </b></label>
+                    </div>
+                    <div>
+                        <input
+                            type="email"
+                            id="email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            required
+                        />
+                    </div>
                 </div>
                 <div>
-                    <label htmlFor="password">Password:</label>
-                    <input
-                        type="password"
-                        id="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        required
-                    />
+                    <div>
+                        <label htmlFor="password"><b>Password: </b></label>
+                    </div>
+                    <div>
+                        <input
+                            type="password"
+                            id="password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            required
+                        />
+                    </div>
                 </div>
                 <button type="submit">Signup</button>
             </form>
