@@ -13,6 +13,12 @@ function StickyBar() {
                     </Link>
                 </div>
                 <div id="button-row">
+                    <Link to={"/menu"}>
+                        <button>Daily Menu</button>
+                    </Link>
+                    <Link to={"/favorites"}>
+                        <button>Favorites</button>
+                    </Link>
                     <Link to={"/login"}>
                         <button>Login</button>
                     </Link>
