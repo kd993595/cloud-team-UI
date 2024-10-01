@@ -1,6 +1,7 @@
 import StickyBar from "../components/StickyBar.tsx";
 
 function Login() {
+    
     return (
         <>
             <StickyBar/>
