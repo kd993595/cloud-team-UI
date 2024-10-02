@@ -1,14 +1,14 @@
 const API_URL = 'http://127.0.0.1:7979';
 
-export const userSignup = async (username: string, email: string, password: string) => {
-    const response = await fetch(`${API_URL}/userAuth`, {
+export const userSignup = async (username: string, email: string, password: string) => {  
+  const response = await fetch(`${API_URL}/userAuth`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({ username, email, password })
     });
-
+    // console.log(response);
     if (!response.ok) {
         const errorData = await response.json();
         throw new Error(errorData.msg || 'Error creating user');
