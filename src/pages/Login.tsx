@@ -1,4 +1,6 @@
 import StickyBar from "../components/StickyBar.tsx";
+import { userSignup } from '../utils/api.tsx';
+import React, { useState } from 'react';
 
 function Login() {
     
@@ -8,7 +10,7 @@ function Login() {
             <h2>Login</h2>
             <form id="login-signup-form">
                 <div>
-                    <div><label><b>Email: </b></label></div>
+                    <div><label><b>Username: </b></label></div>
                     <div>
                         <input/>
                     </div>
