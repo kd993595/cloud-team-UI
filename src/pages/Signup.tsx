@@ -11,15 +11,12 @@ function Signup() {
         event.preventDefault();
         
         try {
-            console.log("submitting");
+            // console.log("submitting");
             const response = await userSignup(username, email, password); 
-            console.log(response);
+            // console.log(response);
 
-            if (response.ok) {
-                alert('Signup successful');
-            } else {
-                alert('Signup failed');
-            }
+            alert('Signup successful');
+
         } catch (error) {
             console.error('Error during signup:', error);
             alert('An error occurred during signup. Please try again.');
