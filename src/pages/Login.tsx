@@ -1,18 +1,30 @@
-import React, { useState } from 'react';
+import React, {useContext, useState} from 'react';
 import StickyBar from "../components/StickyBar.tsx";
 import { userLogin } from '../utils/api.tsx';
+import sharedContext from "../context/sharedContext.ts";
+import {useNavigate} from "react-router-dom";
 
 function Login() {
-    const [password, setPassword] = useState('');
-    const [username, setUsername] = useState('');
+    // For form state
+    const [formUsername, setFormUsername] = useState('');
+    const [formPassword, setFormPassword] = useState('');
+
+    // For site state, only update when signup successful
+    const {setUsername} = useContext(sharedContext);
+
+    const navigate = useNavigate();
 
     const handleLogin = async (event: React.FormEvent) => {
         event.preventDefault();
         
         try {
             // console.log("submitting");
-            const response = await userLogin(username, password); 
-            // console.log(response);
+            const response = await userLogin(formUsername, formPassword);
+            console.log(response);
+
+            setUsername(response.username);
+            // change page to home
+            navigate("/");
 
             alert('Login successful');
 
@@ -35,8 +47,8 @@ function Login() {
                         <input
                             type="text"
                             id="username"
-                            value={username}
-                            onChange={(e) => setUsername(e.target.value)}
+                            value={formUsername}
+                            onChange={(e) => setFormUsername(e.target.value)}
                             required
                         />
                     </div>
@@ -50,8 +62,8 @@ function Login() {
                         <input
                             type="password"
                             id="password"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
+                            value={formPassword}
+                            onChange={(e) => setFormPassword(e.target.value)}
                             required
                         />
                     </div>

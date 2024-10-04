@@ -1,19 +1,31 @@
-import React, { useState } from 'react';
+import React, {useContext, useState} from 'react';
 import StickyBar from "../components/StickyBar.tsx";
 import { userSignup } from '../utils/api.tsx';
+import sharedContext from "../context/sharedContext.ts";
+import {useNavigate} from "react-router-dom";
 
 function Signup() {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [username, setUsername] = useState('');
+    // For form state
+    const [formEmail, setFormEmail] = useState('');
+    const [formPassword, setFormPassword] = useState('');
+    const [formUsername, setFormUsername] = useState('');
+
+    // For site state, only update when signup successful
+    const {setUsername} = useContext(sharedContext);
+
+    const navigate = useNavigate();
 
     const handleSignup = async (event: React.FormEvent) => {
         event.preventDefault();
         
         try {
             // console.log("submitting");
-            const response = await userSignup(username, email, password); 
-            // console.log(response);
+            const response = await userSignup(formUsername, formEmail, formPassword);
+            console.log(response);
+
+            setUsername(response.username);
+            // change page to home
+            navigate("/");
 
             alert('Signup successful');
 
@@ -36,8 +48,8 @@ function Signup() {
                         <input
                             type="text"
                             id="username"
-                            value={username}
-                            onChange={(e) => setUsername(e.target.value)}
+                            value={formUsername}
+                            onChange={(e) => setFormUsername(e.target.value)}
                             required
                         />
                     </div>
@@ -50,8 +62,8 @@ function Signup() {
                         <input
                             type="email"
                             id="email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
+                            value={formEmail}
+                            onChange={(e) => setFormEmail(e.target.value)}
                             required
                         />
                     </div>
@@ -64,8 +76,8 @@ function Signup() {
                         <input
                             type="password"
                             id="password"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
+                            value={formPassword}
+                            onChange={(e) => setFormPassword(e.target.value)}
                             required
                         />
                     </div>

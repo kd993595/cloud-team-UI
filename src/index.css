@@ -62,8 +62,12 @@ button:focus-visible {
   padding-bottom: 10px;
 }
 
-#button-row > * {
-  margin: 10px;
+#button-row-left > * {
+  margin-right: 15px;
+}
+
+#button-row-right > * {
+  margin-left: 15px;
 }
 
 #title {
