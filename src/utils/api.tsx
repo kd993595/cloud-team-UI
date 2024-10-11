@@ -29,3 +29,38 @@ export const userLogin = async (username: string, password: string) => {
 
     return response.json();
 };
+
+
+export const addPreference = async (preference_id: number, user_id: number, food_id: number) => {
+    const response = await fetch(`${API_URL}/addPref`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ preference_id, user_id, food_id })
+    });
+
+    if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || 'Error adding preference');
+    }
+
+    return response.json();
+};
+
+export const getPreferences = async (user_id: number) => {
+    const response = await fetch(`${API_URL}/getPref`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ user_id })
+    });
+
+    if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || 'Error getting preferences');
+    }
+
+    return response.json();
+};
