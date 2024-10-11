@@ -22,7 +22,7 @@ function Login() {
             const response = await userLogin(formUsername, formPassword);
             console.log(response);
 
-            setUsername(response.username);
+            setUsername(formUsername);
             // change page to home
             navigate("/");
 
