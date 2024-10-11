@@ -30,7 +30,6 @@ export const userLogin = async (username: string, password: string) => {
     return response.json();
 };
 
-
 export const addPreference = async (preference_id: number, user_id: number, food_id: number) => {
     const response = await fetch(`${API_URL}/addPref`, {
         method: 'POST',
