@@ -1,11 +1,18 @@
 import {Food} from "../types/types.ts";
 import FoodCard from "./FoodCard.tsx";
-import {ReactElement, useState} from "react";
+import {ReactElement, useState, useEffect} from "react";
+
 
 function DiningHall({name, allFood}: {name: string; allFood: Food[]}) {
     // Favorites is a list of all the food items that the user has favorited
     const [favorites, setFavorites] = useState<Food[]>([]);
     
+    useEffect(() => {
+        // This function should send a request to the API to get the user's favorite foods
+
+        // This function should also send API requests to get all the daily food items 
+    }, []);
+
 
     const menus = new Map<string, Food[]>;
     // Sort all food into its menu bucket

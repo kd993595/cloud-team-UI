@@ -63,3 +63,4 @@ export const getPreferences = async (user_id: number) => {
 
     return response.json();
 };
+

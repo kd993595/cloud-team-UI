@@ -21,6 +21,7 @@ function Login() {
             // console.log("submitting");
             const response = await userLogin(formUsername, formPassword);
             console.log(response);
+            localStorage.setItem('authToken', response.token);
 
             setUsername(formUsername);
             // change page to home
